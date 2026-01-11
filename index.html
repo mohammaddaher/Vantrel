@@ -1,338 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VANTREL — Engineering Intelligent Systems</title>
-  <meta name="description" content="VANTREL provides government-ready technology solutions, products, and services. Engineering Intelligent Systems."/>
-  <style>
-    :root{
-      --bg:#081a33;
-      --bg2:#0b1f3b;
-      --card:#0f2a55;
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.72);
-      --muted2:rgba(255,255,255,.55);
-      --line:rgba(255,255,255,.12);
-      --accent:rgba(120,180,255,.9);
-      --shadow: 0 22px 55px rgba(0,0,0,.35);
-      --radius: 22px;
-      --max: 1120px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% 0%, rgba(80,140,255,.35), transparent 60%),
-        radial-gradient(900px 650px at 100% 10%, rgba(120,180,255,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      overflow-x:hidden;
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 80px}
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(8,26,51,.75), rgba(8,26,51,.35));
-      border-bottom: 1px solid var(--line);
-    }
-    .nav{
-      max-width:var(--max);
-      margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 18px;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      letter-spacing:.24em;
-      font-weight:700;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(120,180,255,.14);
-      flex:0 0 auto;
-    }
-    .links{
-      display:flex; gap:18px; align-items:center;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .links a{padding:10px 8px; border-radius:12px}
-    .links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .cta{
-      display:flex; gap:10px; align-items:center;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:11px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:600;
-      font-size:14px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color:rgba(255,255,255,.22)}
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(120,180,255,.95), rgba(60,120,255,.92));
-      border-color: transparent;
-      box-shadow: 0 14px 40px rgba(40,120,255,.28);
-      color:#061426;
-    }
-    .btn.primary:hover{transform: translateY(-1px); filter: brightness(1.03)}
-    .hero{
-      padding:52px 0 10px;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:26px;
-      align-items:center;
-    }
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:13px;
-      width:max-content;
-    }
-    .kicker b{color:var(--text); letter-spacing:.06em}
-    h1{
-      margin:18px 0 10px;
-      font-size: clamp(34px, 5.2vw, 54px);
-      line-height:1.05;
-      letter-spacing:-.02em;
-    }
-    .sub{
-      color:var(--muted);
-      font-size: 17px;
-      line-height:1.7;
-      margin: 10px 0 22px;
-      max-width: 58ch;
-    }
-    .heroActions{display:flex; gap:12px; flex-wrap:wrap}
-    .heroCard{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      padding: 20px;
-      position:relative;
-      overflow:hidden;
-    }
-    .heroCard:before{
-      content:"";
-      position:absolute;
-      inset:-120px -120px auto auto;
-      width:260px; height:260px;
-      border-radius:50%;
-      background: radial-gradient(circle at 30% 30%, rgba(120,180,255,.45), transparent 60%);
-      filter: blur(2px);
-    }
-    .logoBox{
-      display:flex; justify-content:center; align-items:center;
-      padding: 10px 0 6px;
-      position:relative;
-      z-index:1;
-    }
-    .logoBox img{
-      width:min(420px, 92%);
-      height:auto;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.12);
-    }
-    .tag{
-      text-align:center;
-      margin: 16px 0 6px;
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing:.08em;
-      position:relative;
-      z-index:1;
-    }
-    .grid{
-      margin-top: 34px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      padding:18px;
-      min-height: 150px;
-    }
-    .card h3{margin:0 0 8px; font-size:16px; letter-spacing:.02em}
-    .card p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
-    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .pill{
-      padding:9px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    section{
-      margin-top: 44px;
-      padding-top: 10px;
-    }
-    .sectionTitle{
-      font-size: 22px;
-      margin: 0 0 14px;
-      letter-spacing:-.01em;
-    }
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    .list{
-      margin:0; padding:0; list-style:none;
-      display:grid; gap:10px;
-    }
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px 12px;
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.035);
-    }
-    .tick{
-      width:20px; height:20px; border-radius:8px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(120,180,255,.18);
-      flex:0 0 auto;
-      position:relative;
-      margin-top:1px;
-    }
-    .tick:after{
-      content:"";
-      position:absolute;
-      left:6px; top:4px;
-      width:6px; height:10px;
-      border-right:2px solid rgba(255,255,255,.85);
-      border-bottom:2px solid rgba(255,255,255,.85);
-      transform: rotate(45deg);
-    }
-    .list b{display:block; margin-bottom:2px}
-    .muted{color:var(--muted)}
-    .contact{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    .form{
-      display:grid;
-      gap:10px;
-    }
-    label{font-size:13px; color:var(--muted); display:block; margin-bottom:6px}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      outline:none;
-    }
-    textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus{border-color: rgba(120,180,255,.65)}
-    footer{
-      margin-top: 52px;
-      padding-top: 18px;
-      border-top:1px solid var(--line);
-      color:var(--muted2);
-      font-size:13px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .smalllinks{display:flex; gap:14px; flex-wrap:wrap}
-    .smalllinks a:hover{color:var(--text)}
-    @media (max-width: 940px){
-      .hero{grid-template-columns: 1fr; padding-top: 34px}
-      .grid{grid-template-columns: 1fr}
-      .split{grid-template-columns: 1fr}
-      .contact{grid-template-columns: 1fr}
-      .links{display:none}
-    }
-  </style>
+  <title>VANTREL Information Technology</title>
+  <meta name="description" content="VANTREL delivers government-grade software platforms and smart systems." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 <header>
   <div class="nav">
     <div class="brand" aria-label="VANTREL brand">
-      <span class="dot" aria-hidden="true"></span>
+      <img src="images/vLogo-removebg-preview.png" width="35    " />
       <span>VANTREL</span>
     </div>
+
     <nav class="links" aria-label="Site navigation">
       <a href="#services">Services</a>
       <a href="#products">Products</a>
-      <a href="#approach">Approach</a>
+      <a href="#delivery">How We Deliver</a>
       <a href="#contact">Contact</a>
     </nav>
+
     <div class="cta">
       <a class="btn" href="#contact">Request a meeting</a>
-      <a class="btn primary" href="#services">Explore</a>
+      <a class="btn primary" href="#products">Explore</a>
     </div>
   </div>
 </header>
 
 <main class="wrap">
+  <!-- HERO -->
   <section class="hero" id="home">
     <div>
       <div class="kicker">
         <b>Government-ready</b>
-        <span>products & services · secure-by-design · delivery focused</span>
+        <span>secure systems · structured delivery · long-term support</span>
       </div>
 
       <h1>Engineering Intelligent Systems.</h1>
+
       <p class="sub">
-        VANTREL designs, builds, and supports modern software platforms for government and enterprise environments.
-        We combine strong architecture, reliable delivery, and practical execution to turn operations into digital systems.
+        VANTREL Information Technology designs, builds, and supports secure digital platforms
+        for government and enterprise environments. We focus on institutional systems that
+        improve efficiency, governance, transparency, and operational control.
       </p>
 
       <div class="heroActions">
-        <a class="btn primary" href="#contact">Start a pilot</a>
+        <a class="btn primary" href="#contact">Start a discussion</a>
         <a class="btn" href="#products">View products</a>
         <a class="btn" href="#services">View services</a>
       </div>
 
       <div class="pillRow" aria-label="Key capabilities">
-        <span class="pill">Case & Request Management</span>
         <span class="pill">Workflow Automation</span>
-        <span class="pill">Dashboards & Reporting</span>
-        <span class="pill">Integration & APIs</span>
-        <span class="pill">On-site Deployment</span>
+        <span class="pill">Dashboards &amp; Reporting</span>
+        <span class="pill">Integration &amp; APIs</span>
+        <span class="pill">On-Prem &amp; Cloud</span>
+        <span class="pill">Support &amp; SLA</span>
       </div>
     </div>
 
     <div class="heroCard" aria-label="VANTREL logo card">
       <div class="logoBox">
-        <img src="vantrel-logo.png" alt="VANTREL Logo">
+        <!-- Replace src later -->
+        <img src="images/vantrel-logo.png" alt="VANTREL Logo" />
       </div>
-      <div class="tag">VANTREL • Engineering Intelligent Systems</div>
+      <div class="tag">VANTREL • Government &amp; Enterprise Systems</div>
     </div>
   </section>
 
-  <section class="grid" aria-label="Highlights">
+  <!-- HIGHLIGHTS -->
+  <section class="grid highlights" aria-label="Highlights">
     <div class="card">
       <h3>Institutional-grade delivery</h3>
-      <p>Structured execution, clear milestones, and documentation that fits government environments.</p>
+      <p>Structured execution, clear milestones, and documentation aligned with government environments.</p>
     </div>
     <div class="card">
       <h3>Secure-by-design</h3>
@@ -344,64 +87,142 @@
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services">
     <h2 class="sectionTitle">Services</h2>
     <div class="split">
       <ul class="list">
-        <li><span class="tick" aria-hidden="true"></span><div><b>Custom Software Development</b><span class="muted">Government portals, internal systems, enterprise web apps.</span></div></li>
-        <li><span class="tick" aria-hidden="true"></span><div><b>Solution Architecture</b><span class="muted">System design, data models, integration patterns, scalability planning.</span></div></li>
-        <li><span class="tick" aria-hidden="true"></span><div><b>Integration & APIs</b><span class="muted">Secure integrations with existing systems, identity providers, and data sources.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Custom Government Systems</b><span class="muted">Institutional platforms aligned with official processes and governance.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Solution Architecture</b><span class="muted">Architecture, security baseline, data models, and scalability planning.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Integration &amp; APIs</b><span class="muted">Secure integration with existing systems  and data sources.</span></div></li>
       </ul>
       <ul class="list">
-        <li><span class="tick" aria-hidden="true"></span><div><b>Data & Reporting</b><span class="muted">Dashboards, analytics, and operational reporting for decision-makers.</span></div></li>
-        <li><span class="tick" aria-hidden="true"></span><div><b>Deployment & On-site Support</b><span class="muted">Environment setup, release management, and operational support.</span></div></li>
-        <li><span class="tick" aria-hidden="true"></span><div><b>Maintenance & SLA</b><span class="muted">Proactive monitoring, issue resolution, and continuous improvements.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Deployment &amp; On-site Support</b><span class="muted">On-premise, private cloud, or hybrid deployment .</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Operations &amp; Maintenance</b><span class="muted">Monitoring, incident management, patching, and  improvements.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Documentation &amp; Handover</b><span class="muted">Technical docs, user guides, and knowledge transfer for sustainability.</span></div></li>
       </ul>
     </div>
   </section>
 
+  <!-- PRODUCTS -->
   <section id="products">
-    <h2 class="sectionTitle">Products</h2>
+    
+    <h2 class="sectionTitle">Software Systems</h2>
     <div class="grid">
-      <div class="card">
-        <h3>VANTREL CaseDesk</h3>
-        <p>Case & request management system for government workflows: intake, routing, approvals, tracking, and audit logs.</p>
+      <div class="card product">
+        <img src="images/vms.png" alt="Visitor Management System (VMS)" />
+        <h3>Visitor Management System (VMS)</h3>
+        <p>Visitor registration, approvals, badge issuance, and access control for facilities.</p>
       </div>
-      <div class="card">
-        <h3>VANTREL FlowHub</h3>
-        <p>Workflow automation toolkit to digitize procedures, forms, approvals, and notifications across departments.</p>
+
+      <div class="card product">
+        <img src="images/hcm.png" alt="Human Capital Management (HCM)" />
+        <h3>Human Capital Management (HCM)</h3>
+        <p>Attendance, HR records, and payroll management within a unified platform.</p>
       </div>
-      <div class="card">
-        <h3>VANTREL InsightBoard</h3>
-        <p>Executive dashboards and reporting layer that turns operational data into actionable KPIs.</p>
+
+      <div class="card product">
+        <img src="images/dms.png" alt="Document Management System (DMS)" />
+        <h3>Document Management System (DMS)</h3>
+        <p>Secure document storage with version control, metadata, and access permissions.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/cms.png" alt="Correspondence Management System (CMS)" />
+        <h3>Correspondence Management System (CMS)</h3>
+        <p>Digital handling of incoming and outgoing official correspondence with routing and approvals.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/ams.png" alt="Asset Management System (AMS)" />
+        <h3>Asset Management System (AMS)</h3>
+        <p>Asset lifecycle tracking including labeling, barcode identification, and audits.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/mms.png" alt="Meeting Management System (MMS)" />
+        <h3>Meeting Management System (MMS)</h3>
+        <p>Meeting scheduling, agendas, minutes, room dashboards, and approvals.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/ems.png" alt="Event Management System (EMS)" />
+        <h3>Event Management System (EMS)</h3>
+        <p>Official event planning and management with attendees and smart seating.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/qms.png" alt="Queue Management System (QMS)" />
+        <h3>Queue Management System (QMS)</h3>
+        <p>Digital organization of visitor and citizen queues using kiosks and displays.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/tms.png" alt="Tax Management System (TMS)" />
+        <h3>Tax Management System (TMS)</h3>
+        <p>Taxpayer registration, electronic filing, payments, and compliance monitoring.</p>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle" style="padding-top:50px;">Hardware &amp; Smart Devices</h2>
+    <div class="grid">
+      <div class="card product">
+        <img src="images/kiosk.png" alt="Self-Service Kiosks" />
+        <h3>Self-Service Kiosks</h3>
+        <p>Interactive kiosks enabling self-service registration, requests, and guided transactions.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/QueueKiosk.png" alt="Queue Management Kiosks & Displays" />
+        <h3>Queue Management Kiosks &amp; Displays</h3>
+        <p>Ticket issuance kiosks, calling units, and display screens for service halls.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/Dashboard.png" alt="Meeting Room Dashboards (Room Panels)" />
+        <h3>Meeting Room Dashboards</h3>
+        <p>Room panels showing schedules, availability, and meeting status with check-in support.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/SignaturePad.png" alt="Digital Signature Pads" />
+        <h3>Digital Signature Pads</h3>
+        <p>Secure signing devices for approvals, minutes of meeting, and official acknowledgements.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/AC.png" alt="Access Control Devices" />
+        <h3>Access Control Devices</h3>
+        <p>Card, biometric, and facial recognition devices integrated with access workflows.</p>
+      </div>
+
+      <div class="card product">
+        <img src="images/QrReader.png"   alt="Barcode / QR Code Labels & Scanners" />
+        <h3>Barcode / QR Labels &amp; Scanners</h3>
+        <p>Asset identification and verification tools integrated with asset management processes.</p>
       </div>
     </div>
   </section>
 
-  <section id="approach">
-    <h2 class="sectionTitle">Approach</h2>
+  <!-- HOW WE DELIVER -->
+  <section id="delivery">
+    <h2 class="sectionTitle">How We Deliver</h2>
     <div class="split">
       <ul class="list">
-        <li><span class="tick" aria-hidden="true"></span><div><b>Discover</b><span class="muted">Understand processes, stakeholders, and constraints; define success metrics.</span></div></li>
-        <li><span class="tick" aria-hidden="true"></span><div><b>Design</b><span class="muted">UX/UI, architecture, and security baseline; validate quickly with prototypes.</span></div></li>
-        <li><span class="tick" aria-hidden="true"></span><div><b>Deliver</b><span class="muted">Iterative build, testing, documentation, and controlled releases.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Discovery &amp; Requirements</b><span class="muted">Understand objectives, processes, constraints, and success metrics.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Solution Architecture</b><span class="muted">Define architecture, security baseline, and integration approach.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Design &amp; Engineering</b><span class="muted">UX/UI, data models, and detailed engineering specifications.</span></div></li>
       </ul>
-      <div class="card">
-        <h3>What makes VANTREL different</h3>
-        <p>
-          We build systems that match how government teams actually work: clear roles, traceable actions,
-          and dependable operations. Our focus is long-term stability, security, and maintainability.
-        </p>
-        <div class="pillRow" style="margin-top:14px">
-          <span class="pill">Architecture-first</span>
-          <span class="pill">Delivery discipline</span>
-          <span class="pill">Documentation</span>
-          <span class="pill">Support readiness</span>
-        </div>
-      </div>
+
+      <ul class="list">
+        <li><span class="tick" aria-hidden="true"></span><div><b>Development &amp; Integration</b><span class="muted">Build, test, integrate, and document the solution.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Deployment &amp; Go-Live</b><span class="muted">Controlled rollout, production release, and handover.</span></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><b>Support &amp; Evolution</b><span class="muted">Operations, SLAs, enhancements, and continuous improvement.</span></div></li>
+      </ul>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2 class="sectionTitle">Contact</h2>
     <div class="contact">
@@ -433,31 +254,31 @@
       <div class="card">
         <h3>Company</h3>
         <p class="muted" style="margin-top:8px">
-          <b>VANTREL Information Technology</b><br/>
-          Engineering Intelligent Systems
+          <b>VANTREL Information Technology</b><br>
+          Replace these placeholders with your real contacts.
         </p>
         <div class="pillRow" style="margin-top:14px">
-          <span class="pill">Products</span>
-          <span class="pill">Services</span>
           <span class="pill">Government</span>
           <span class="pill">Enterprise</span>
+          <span class="pill">Products</span>
+          <span class="pill">Services</span>
         </div>
 
         <p class="muted" style="margin-top:16px">
-          Suggested emails:<br/>
-          <span class="muted">info@vantrel.com</span><br/>
+          Suggested emails:<br>
+          <span class="muted">info@vantrel.com</span><br>
           <span class="muted">contact@vantrel.com</span>
         </p>
 
         <p class="muted" style="margin-top:16px">
-          Replace these placeholders with your real domain and contacts.
+          Regions: Middle East &amp; Africa
         </p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div>© <span id="year"></span> VANTREL. All rights reserved.</div>
+    <div>© <span id="year">2026</span> VANTREL. All rights reserved.</div>
     <div class="smalllinks">
       <a href="#home">Top</a>
       <a href="#services">Services</a>
@@ -468,10 +289,7 @@
 </main>
 
 <script>
-  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Contact form -> mailto (no backend needed)
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
@@ -487,10 +305,10 @@
       "Message:\n" + msg + "\n"
     );
 
-    // Replace with your real mailbox
     const to = "contact@vantrel.com";
     window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
   });
 </script>
+
 </body>
 </html>
