@@ -214,7 +214,7 @@ section{margin-top: 44px; padding-top: 10px;}
 .tick:after{
   content:"";
   position:absolute;
-  left:6px; top:4px;
+  left:6px; top:0px;
   width:6px; height:10px;
   border-right:2px solid rgba(255,255,255,.85);
   border-bottom:2px solid rgba(255,255,255,.85);
